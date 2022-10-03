@@ -29,7 +29,14 @@ if (mysqli_query($con, $sql)) {
          $sql.=";";
     }
     
-    if(mysqli_query($con,$sql1)) echo "บันทึกข้อมูลการสั่งซื้อเรียบร้อยแล้ว";
+    if(mysqli_query($con,$sql1)) {
+?>
+<script>
+    window.alert("บันทึกข้อมูลการสั่งซื้อเรียบร้อยแล้ว");
+    window.location.replace("order_detail.php");
+</script>
+<?php    }
+
     else "เกิดข้อผิดพลาดในการสั่งซื้อ";
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
